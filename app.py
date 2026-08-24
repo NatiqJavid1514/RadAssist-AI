@@ -25,12 +25,13 @@ image = None
 
 # Handle image selection based on exact filenames in your repo
 if input_option == "Sample: Pneumonia Chest X-Ray":
-    sample_path = "pneumonia.jpeg"
+    # Try both common spellings just in case
+    sample_path = "pneumonia.jpeg" if os.path.exists("pneumonia.jpeg") else "pnemonia.jpeg"
     if os.path.exists(sample_path):
         image = Image.open(sample_path)
         st.image(image, caption="Sample Input: Pneumonia Scan", use_container_width=True)
     else:
-        st.error(f"File '{sample_path}' not found in root directory.")
+        st.error("Pneumonia sample file not found in root directory.")
 
 elif input_option == "Sample: Normal Chest X-Ray":
     # Checks for either file extension for your normal chest scan
@@ -72,8 +73,9 @@ if image is not None:
                 )
                 
                 with st.spinner("Analyzing image features..."):
+                    # Updated to gemini-3.6-flash model
                     response = client.models.generate_content(
-                        model="gemini-2.5-flash",
+                        model="gemini-3.6-flash",
                         contents=[image, prompt]
                     )
                 
