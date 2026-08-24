@@ -3,7 +3,7 @@
 RadAssist AI is an educational, AI-powered triage support tool designed to assist general practitioners in under-resourced and rural healthcare clinics where radiologist access is limited.
 
 ## 🚀 Live Demo
-- **App URL:** [Paste your deployed Streamlit link here]
+- **App URL:** https://radassist-ai-vfeqwbmtynvheanen9rfnv.streamlit.app/
 - **Video Demo:** [Paste your YouTube video link here]
 
 ## 📋 Features
